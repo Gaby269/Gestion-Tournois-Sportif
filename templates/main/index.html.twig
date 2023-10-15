@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Site{% endblock %}
+
+{% block body %}
+<h1> Gestion de tournois sportif</h1>
+
+{% set id = app.request.query.get('id') %}
+{% set aDejaEquipe = app.request.query.get('aDejaEquipe') %}
+
+{% if aDejaEquipe %}
+    <div class="alert alert-warning">
+        Vous êtes déjà capitaine de l'équipe {{ id }}. Vous ne pouvez créer que l'équipe où vous êtes capitaine.
+    </div>
+{% endif %}
+
+
+
+<p>Accueil nous somme le  {{"now" | date('d/m/Y H:i', timezone="Europe/Paris")}}</p>
+
+{% endblock %}
+

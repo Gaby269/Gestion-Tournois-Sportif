@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier son role{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Modifier son role</h1>
+
+    {{ form_errors(rolesForm) }}
+
+    {{ form_start(rolesForm) }}
+
+    {{ form_row(rolesForm.nomRole, {
+        'label': 'Nom du role : ',
+        'attr': {
+            'placeholder': 'Tennis...',
+        },
+        'label_attr': {
+            'class': 'm-2',
+        },
+    }) }}
+
+    {{ form_end(rolesForm) }}
+    </div>
+{% endblock %}

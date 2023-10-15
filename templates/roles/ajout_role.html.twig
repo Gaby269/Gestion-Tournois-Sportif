@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un role{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Ajouter un role</h1>
+
+    {{ form_errors(rolesForm) }}
+
+    {% if nomRole is defined %}
+        <div class="alert alert-success">
+            Le rôle <b>{{ nomRole }}</b> a été ajouté avec succès.
+        </div>
+    {% endif %}
+
+    {{ form_start(rolesForm) }}
+
+    {{ form_row(rolesForm.nomRole, {
+        'label': 'Nom du role : ',
+        'attr': {
+            'placeholder': 'JOUEUR...',
+        },
+        'label_attr': {
+            'class': 'm-2',
+        },
+    }) }}
+
+    <br/>
+    <button type="submit" class="btn btn-success mb-3">Ajouter le role</button>
+
+
+    {{ form_end(rolesForm) }}
+    </div>
+{% endblock %}

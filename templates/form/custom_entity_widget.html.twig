@@ -1,0 +1,7 @@
+{# templates/form/custom_entity_widget.html.twig #}
+{% block custom_entity_widget %}
+    <label for="{{ id }}" class="custom-checkbox label"> 
+        {{ block('choice_widget') }}
+        {{ label }}
+    </label>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un sport{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Ajouter un sport</h1>
+
+    {{ form_errors(sportsForm) }}
+
+    {% if nomSport is defined %}
+        <div class="alert alert-success">
+            Le sport <b>{{ nomSport }}</b> a été ajouté avec succès.
+        </div>
+    {% endif %}
+
+    {{ form_start(sportsForm) }}
+
+    {{ form_row(sportsForm.nomSport, {
+        'label': 'Nom du sport : ',
+        'attr': {
+            'placeholder': 'Tennis...',
+        },
+        'label_attr': {
+            'class': 'm-2',
+        },
+    }) }}
+    {{ form_row(sportsForm.nbJoueur, {
+        'label': 'Nombre de joueur : ',
+        'attr': {
+            'placeholder': '14...',
+        },
+        'label_attr': {
+            'class': 'm-2',
+        },
+    }) }}
+
+    <br/>
+    <button type="submit" class="btn btn-success mb-3">Ajouter le sport</button>
+
+
+    {{ form_end(sportsForm) }}
+    </div>
+{% endblock %}
+

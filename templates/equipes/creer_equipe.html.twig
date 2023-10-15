@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation d'une equipe{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Creation d'une équipe</h1>
+
+    {{ form_errors(creerEquipeForm) }}
+
+    {{ form_start(creerEquipeForm) }}
+
+        {{ form_row(creerEquipeForm.nomEquipe, {
+            'label': "Nom de l'équipe : ",
+            'attr': {
+                'placeholder': 'Chocolat ...',
+            },
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+        {{ form_row(creerEquipeForm.niveau, {
+            'label': "Niveau de l'équipe : ",
+            'attr': {
+                'placeholder': '14 ...',
+            },
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+        {{ form_row(creerEquipeForm.adresseMail, {
+            'label': 'Adresse mail : ',
+            'label_attr': {
+                'class': 'm-2',
+            },
+            'attr': {
+                'placeholder': '...@gmail.com',
+            },
+        }) }}
+        {{ form_row(creerEquipeForm.numeroTel, {
+            'label': 'Numéro de téléphone : ',
+            'label_attr': {
+                'class': 'm-2',
+            },
+            'attr': {
+                'size': '10',
+                'placeholder': '06...',
+            },
+        }) }}
+        {{ form_row(creerEquipeForm.sport, {
+            'label': 'Liste des sports : ',
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+
+        <br/>
+        <button type="submit" class="btn btn-success mb-3">Creer son équipe</button>
+
+    {{ form_end(creerEquipeForm) }}
+    </div>
+{% endblock %}

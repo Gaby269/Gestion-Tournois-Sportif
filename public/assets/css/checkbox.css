@@ -1,0 +1,52 @@
+/* styles.css (ou un autre fichier CSS de votre choix) */
+
+/* Style pour la classe "custom-checkbox" que nous avons ajoutée dans le modèle Twig */
+.custom-checkbox {
+  display: block; /* Assurez-vous qu'elle occupe toute la largeur du conteneur parent */
+  position: relative; /* Permet de positionner correctement le label et la case à cocher */
+  margin: 0.5rem;
+}
+
+/* Style pour la case à cocher elle-même */
+.custom-checkbox input[type="checkbox"] {
+  position: absolute; /* Position absolue pour la personnalisation */
+  opacity: 0; /* Masque la case à cocher par défaut */
+}
+
+/* Style pour l'apparence de la case à cocher */
+.custom-checkbox input[type="checkbox"] + label::before {
+  content: ""; /* Contenu vide, créera la case à cocher personnalisée */
+  border: 1px solid #333; /* Bordure de la case à cocher */
+  border-radius: 4px; /* Coins arrondis */
+  width: 20px; /* Largeur de la case à cocher */
+  height: 20px; /* Hauteur de la case à cocher */
+  display: inline-block; /* Permet de positionner la case à cocher correctement */
+  margin-right: 5px; /* Ajoute un espace entre la case à cocher et le texte */
+  text-align: center; /* Centre le texte horizontalement */
+  top: 0;
+  left: 0;
+}
+
+/* Style pour la case à cocher cochée */
+.custom-checkbox input[type="checkbox"]:checked + label::before {
+  content: "\e876"; /* Utilisez le code Unicode de l'icône que vous souhaitez (dans ce cas, une croix de Material Icons) */
+  font-family: "Material Icons"; /* Utilisez le nom de la nouvelle police d'icônes */
+  font-size: 16px; /* Taille de la croix */
+  color: #333; /* Couleur de la croix */
+  top: 0;
+  left: 0;
+  height: 100%; /* Remplit toute la hauteur de la case cochée */
+  text-align: center; /* Centre le texte horizontalement */
+  line-height: 20px; /* Ajustez la hauteur de ligne pour centrer verticalement le texte */
+  border: 1px solid #333; /* Bordure de la case cochée */
+  border-radius: 4px; /* Coins arrondis de la case cochée */
+}
+
+label {
+  margin-right: 0.5rem;
+}
+
+#registration_form_sportsUser {
+  align-items: center;
+  margin: 0.5rem;
+}

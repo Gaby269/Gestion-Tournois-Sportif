@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation d'un tournoi{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Creation d'un tournois</h1>
+
+    {{ form_errors(creerTournoiForm) }}
+
+    {{ form_start(creerTournoiForm) }}
+
+    {{ form_row(creerTournoiForm.nomTournoi, {
+            'label': "Nom du tounoi : ",
+            'attr': {
+                'placeholder': 'Roland Garros ...',
+            },
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+        {{ form_row(creerTournoiForm.startTime_at, {
+            'label': "Commence le : ",
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+        {{ form_row(creerTournoiForm.endTime_at, {
+            'label': 'Termine le : ',
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+        {{ form_row(creerTournoiForm.adressePostal, {
+            'label': 'Adresse du tournoi : ',
+            'label_attr': {
+                'class': 'm-2',
+            },
+            'attr': {
+                'placeholder': '3 rue du Pilory...',
+            },
+        }) }}
+        {{ form_row(creerTournoiForm.codePostal, {
+            'label': 'Code postal du tournoi : ',
+            'attr': {
+                'size':5,
+                'placeholder': '23000...',
+            },
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+
+        {{ form_row(creerTournoiForm.villeTournoi, {
+            'label': 'Ville du tournoi : ',
+            'attr': {
+                'placeholder': 'Paris...',
+            },
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+
+        {{ form_row(creerTournoiForm.nbEquipes, {
+            'label': "Nombre d'équipes : ",
+            'attr': {
+                'placeholder': '24...',
+            },
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+
+        {{ form_row(creerTournoiForm.typeTournoi, {
+            'label': "Type du tournoi : ",
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+
+        {{ form_row(creerTournoiForm.sportTournois, {
+            'label': "Sport du tournoi : ",
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+       
+    <br/>
+    <button type="submit" class="btn btn-success mb-3">Creer le tournoi</button>
+
+    {{ form_end(creerTournoiForm) }}
+    </div>
+{% endblock %}

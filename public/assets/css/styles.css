@@ -1,0 +1,31 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Elephant Normal";
+  src: url("https://db.onlinewebfonts.com/t/9c468aadeb12afa9fca3b83b9086cff4.eot");
+  src: url("https://db.onlinewebfonts.com/t/9c468aadeb12afa9fca3b83b9086cff4.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/9c468aadeb12afa9fca3b83b9086cff4.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/9c468aadeb12afa9fca3b83b9086cff4.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/9c468aadeb12afa9fca3b83b9086cff4.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/9c468aadeb12afa9fca3b83b9086cff4.svg#Elephant Normal")
+      format("svg");
+}
+
+body {
+  font-family: "Elephant Normal", sans-serif; /* Utilisez le nom de votre police ici */
+}
+
+h1 {
+  font-family: "Elephant Normal";
+}
+
+/* styles.css (ou un autre fichier CSS de votre choix) */
+
+.deja-inscrit {
+  border: 2px solid green; /* Style de bordure (solid), largeur (2px), couleur (#000 pour noir) */
+  border-radius: 10px; /* Rayon des coins pour créer des coins arrondis (10px) */
+  padding: 10px; /* Espace interne pour éviter que le contenu ne touche la bordure */
+}

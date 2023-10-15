@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <h1>Mon compte</h1>
+    
+    <div class="row">
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><b>Information générales</b></h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item nom">
+                        <b>Nom : </b>{{app.user.nomUser}} 
+                        <form method="POST"> 
+                            <i class="material-icons modifier-nom">edit</i>
+                        </form>
+                    </li>
+                    <li class="list-group-item prenom">
+                        <b>Prénom : </b>{{app.user.prenomUser}}
+                        <form method="POST"> 
+                            <i class="material-icons modifier-prenom">edit</i>
+                        </form>
+                    </li>
+                    <li class="list-group-item ville">
+                        <b>Ville : </b>{{app.user.villeUser}} 
+                        <form method="POST">
+                            <i class="material-icons modifier-ville">edit</i>
+                        </form>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><b>Information de connexion</b></h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item email">
+                        <b>Email : </b>{{app.user.email}} 
+                        <form method="POST">    
+                        
+                            <i class="material-icons modifier-email">edit</i>
+
+                            {{ form_start(formModification) }}
+                                {{ form_row(formModification.nouveau_email) }} {# Champ de saisie "email" #}
+                                {{ form_row(formModification.save) }} {# Bouton de soumission #}
+                            {{ form_end(formModification) }}
+
+                        </form>
+                    </li>
+                    <li class="list-group-item mdp">
+                        <b>Mot de passe : </b>°°°°°° 
+                        <form method="POST">
+                            <i class="material-icons modifier-mdp">edit</i>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

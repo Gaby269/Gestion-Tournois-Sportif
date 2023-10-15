@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les tournois{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Liste des tournois</h1>
+
+    <div class="row">
+        {% for index, t in tournois %}
+            {# index est la clé ou l'index de l'élément, item est la valeur #}
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{t.nomTournoi}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{t.sportTournois.nomSport}}</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item dates"><b>Dates : </b>{{t.getStartTimeAt()|date('Y-m-d H:i:s') }} - {{t.getEndTimeAt()|date('Y-m-d H:i:s') }}</li>
+                        <li class="list-group-item adresse-postal">
+                            <b>Adresse</b>
+                            <ul class="list-group list-group-flush adresse-list">
+                                <li class="list-group-item adresse">{{t.adressePostal}}</li>
+                                <li class="list-group-item code-postal">{{t.codePostal}} {{t.villeTournoi}}</li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item liste-gestionnaire">
+                            <b>Liste des gestionnaires : </b>
+                            <ul class="list-group list-group-flush gestionnaire-list">
+                                {% for index, g in t.listeGestionnaires %}
+                                    <li class="list-group-item gestionnaire">{{g.nomUser}} {{g.prenomUser}}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% if t.listeEquipes %}
+                            <li class="list-group-item liste-equipe">
+                                <b>Liste des équipes : </b>
+                                <ul class="list-group list-group-flush equipe-list">
+                                    {% for index, e in t.listeEquipes %}
+                                        <li class="list-group-item equipe">{{e.nomEquipe}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                        <li class="list-group-item nb-equipe"><b>Nombre d'équipes : </b>{{t.nbEquipes}}</li>
+                        
+                        <li class="list-group-item type"><b>Type de tournoi : </b>{{t.typeTournoi}}</li>
+                        <li class="list-group-item etat"><b>Etat du tournoi : </b>{{t.etatTournoi}}</li>
+                        
+                        {% if t.vainqueur %}
+                            <li class="list-group-item vainqueur"><b>Vainqueur : </b>{{t.vainqueur.nomEquipe}}</li>
+                        {% endif %}
+
+                        
+                        
+                    </ul>
+                    <br/>
+                    {% if inscritTournoi is defined and inscritTournoi != t %}
+                        <form method="POST">
+                            <input type="hidden" name="tournoi_id" value="{{ t.id }}">
+                            <button type="submit" class="inscription-tournois btn btn-success mb-2 ">S'inscrire</button>
+                        </form>
+                    {% else %}
+                        <div class="deja-inscrit color-green m-2" style="border: 2px solid darkgreen; padding: 5px;"> Déjà inscrit ! </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    
+    </div>
+
+        
+
+{% endblock %}

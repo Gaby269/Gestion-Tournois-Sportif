@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Equipe
+                    </a>
+
+                    <ul class="dropdown-menu">
+                    
+                        <!-- Si l'utilisateur n'est pas capitaine alors il peut creer une équipe-->
+                        {% if app.user and app.user.getCapitaineEquipe() == null %} 
+                            <li>
+                                <a class="dropdown-item" href="/equipes/creer_equipe">Creation d'une équipe</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        {% endif %}
+                        <!-- Si l'utilisateur est capitaine d'une équipe, alors on affiche lajout de membre-->
+                        {% if app.user and app.user.getCapitaineEquipe() %} 
+                            <li>
+                                <a class="dropdown-item" href="/equipes/ajout_membre">Ajouter un membre</a> <!--/equipes/ajout_membre (seulementpar le capitaine)-->
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a class="dropdown-item" href="{{ path('mes_equipes') }}">Consulter mes équipes</a> <!--/equipes/mes_equipes-->
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle onglet-tournois" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tournois
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if app.user and app.user.getRoleUser() and app.user.getRoleUser().getNomRole() == 'GESTIONNAIRE' %}
+                            <li>
+                                <a class="dropdown-item" href="{{ path('creer_tournoi') }}">Créer un tournoi</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        {% endif %}
+                        {% if app.user and app.user.getCapitaineEquipe() != null %} 
+                            <li>
+                                <a class="dropdown-item" href="{{ path('inscription_tournois') }}">S'inscrire au tournoi</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        {% endif %}
+                        {% if app.user and app.user.getCapitaineEquipe() != null %} 
+                            <li>
+                                <a class="dropdown-item" href="{{ path('mes_tournois') }}">Consulter les tournois</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Plannings
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#">Planning des tournois</a> <!--/planning/tournois-->
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Planning des rencontres</a> <!--/planning/rencontre-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/mon_compte">Mon Compte</a> <!--/mon_compte-->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/deconnexion">
+                        <i class="material-icons">logout</i>
+                    </a>
+                </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>

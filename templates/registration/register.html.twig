@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    {# Inclure le fichier CSS spécifique pour ce modèle #}
+    <link rel="stylesheet" href="{{ asset('assets/css/checkbox.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Inscription</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+    <br/>
+        <h3>Information générales : </h3>
+        <div class="container-fluid p-3">
+            {{ form_row(registrationForm.nomUser, {
+                'label': 'Nom : ',
+                'attr': {
+                    'placeholder': 'Votre nom',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+            {{ form_row(registrationForm.prenomUser, {
+                'label': 'Prénom : ',
+                'attr': {
+                    'placeholder': 'Votre prénom',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+            {{ form_row(registrationForm.villeUser, {
+                'label': 'Ville : ',
+                'attr': {
+                    'placeholder': 'Votre ville',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+            {{ form_row(registrationForm.sportsUser, {
+                'label': 'Liste des sports : ',
+                'attr': {
+                    'placeholder' : 'Choisissez des sports',
+                },
+                'widget' : 'custom_entity_widget', 
+            }) }}
+
+            {{ form_row(registrationForm.roleUser, {
+                'label': 'Liste des roles : ',
+                'attr': {
+                    'placeholder' : 'Choisissez un role',
+                }
+            }) }}
+        </div>
+        <br/>
+        <h3>Information de connexion : </h3>
+        
+        <div class="container-fluid p-3">
+            {{ form_row(registrationForm.email, {
+                'label': 'Mail : ',
+                'attr': {
+                    'placeholder': 'Votre adresse mail',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+            {{ form_row(registrationForm.plainPassword, {
+                'label': 'Mot de passe : ',
+                'attr': {
+                    'placeholder': 'Votre mot de passe',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+        </div>
+        <br/>
+        {{ form_row(registrationForm.agreeTerms, {
+            'label_attr': {
+                'class': 'm-2',
+            },
+        }) }}
+
+        <br/>
+        <button type="submit" class="btn btn-success mb-3">M'inscrire</button>
+
+    {{ form_end(registrationForm) }}
+    </div>
+        <br/>
+{% endblock %}

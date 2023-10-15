@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes équipes{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Mes équipes</h1>
+    
+    <div class="row">
+        {% for index, e in equipes %}
+
+            {# index est la clé ou l'index de l'élément, item est la valeur #}
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{e.nomEquipe}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{e.sport.nomSport}}</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item niveau"><b>Niveau : </b>{{e.niveau}}</li>
+                        <li class="list-group-item telephone"><b>Capitaine : </b>{{e.capitaine.nomUser}} {{e.capitaine.prenomUser}}</li>
+                        <li class="list-group-item contact">
+                            <b>Membres de l'équipe</b>
+                            <ul class="list-group list-group-flush contact-list">
+                                {% for index, m in e.membres %}
+                                    <li class="list-group-item membre">{{m.nomUser}} {{m.prenomUser}}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="list-group-item contact">
+                            <b>Contacts</b>
+                            <ul class="list-group list-group-flush contact-list">
+                                <li class="list-group-item mail">{{e.adresseMail}}</li>
+                                <li class="list-group-item telephone">{{e.numeroTel}}</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        
+
+{% endblock %}
