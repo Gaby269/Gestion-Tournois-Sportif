@@ -1,0 +1,60 @@
+.container {
+  padding: 2rem;
+}
+
+.accueil .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.evenement {
+  flex: 1;
+  padding: 2rem;
+  margin-right: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  background-color: #f9f9f9;
+}
+
+.carousel {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  background-color: #f9f9f9;
+  /* Style your image carousel here using CSS or a library like Bootstrap */
+}
+
+img {
+  border-radius: 1rem;
+}
+
+.img-coupe,
+.img-equipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img.equipe {
+  padding: 1rem;
+  width: 45%;
+  height: auto;
+}
+
+img.coupe {
+  width: 75%;
+  height: auto;
+}
+
+.titre-evenement {
+  padding: 1rem;
+}
+
+.carousel img {
+  width: 10%; /* Largeur souhaitée */
+  height: auto; /* Hauteur proportionnelle */
+}

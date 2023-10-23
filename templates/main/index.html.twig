@@ -1,22 +1,51 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/accueil.css')}}">
+{% endblock %}
+
 {% block title %}Site{% endblock %}
 
 {% block body %}
-<h1> Gestion de tournois sportif</h1>
+<div class="container">
+    <h1> Gestion de tournois sportif</h1>
 
-{% set id = app.request.query.get('id') %}
-{% set aDejaEquipe = app.request.query.get('aDejaEquipe') %}
+    {% set id = app.request.query.get('id') %}
+    {% set aDejaEquipe = app.request.query.get('aDejaEquipe') %}
 
-{% if aDejaEquipe %}
-    <div class="alert alert-warning">
-        Vous êtes déjà capitaine de l'équipe {{ id }}. Vous ne pouvez créer que l'équipe où vous êtes capitaine.
+    {% if aDejaEquipe %}
+        <div class="alert alert-warning">
+            Vous êtes déjà capitaine de l'équipe {{ id }}. Vous ne pouvez créer que l'équipe où vous êtes capitaine.
+        </div>
+    {% endif %}
+
+    <div class="accueil">
+    <p>Bonjour ! nous somme le  {{"now" | date('d/m/Y H:i', timezone="Europe/Paris")}}</p>
+            
+        <div class="container-fluid">
+            <div class="evenement">
+                <div class="img-coupe">
+                    <img class="coupe" src="{{ asset('assets/images/word-cup-rugby.jpg')}}" alt="coupe-monde">
+                </div>
+                <h2 class="titre-evenement"><b>Coupe du monde de Rugby</b></h2>
+                
+                <p>La france organise la coupe du monde de rugby 2023, et pour la finale ce sera les AllBlacks contre l'afrique du sud !! Ne ratez pas ce grand évènement.</p>
+                
+                <div class="img-equipe">
+                    <img class="equipe" src="{{ asset('assets/images/allblack.png')}}" alt="allblacks">
+                    <b> VS </b>
+                    <img class="equipe" src="{{ asset('assets/images/springbok.png')}}" alt="springbok">
+                </div>
+            </div>
+            <div class="carousel">
+                <img src="{{ asset('assets/images/springbok.png')}}" class="d-block w-100" alt="Image 1">
+                <img src="{{ asset('assets/images/allblack.png')}}" class="d-block w-100" alt="Image 2">
+                <img src="{{ asset('assets/images/word-cup-rugby.jpg')}}" class="d-block w-100" alt="Image 3">
+
+            </div>
+        </div>
     </div>
-{% endif %}
-
-
-
-<p>Accueil nous somme le  {{"now" | date('d/m/Y H:i', timezone="Europe/Paris")}}</p>
-
+</div>
 {% endblock %}
+
 
