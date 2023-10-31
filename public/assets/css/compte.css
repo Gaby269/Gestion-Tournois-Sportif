@@ -1,0 +1,23 @@
+.bouton-modif {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bouton-modif:focus {
+  outline: none;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center; /* Pour centrer verticalement les éléments du formulaire */
+  justify-content: flex-start; /* Pour répartir les éléments horizontalement */
+}
+
+b {
+  margin-right: 10px;
+}
+
+.mon-compte {
+  padding: 3rem;
+}

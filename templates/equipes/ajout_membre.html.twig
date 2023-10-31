@@ -1,51 +1,57 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/equipes.css')}}">
+{% endblock %}
+
 {% block title %}Ajout d'un membre{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
+<div class="container-fluid mes-equipes">
     <h1>Ajout d'un membre à l'équipe <b>{{equipe.nomEquipe}}</b></h1>
 
-    {% if succes is defined %}
-        <div class="alert alert-succes mb-3">
-            {{membre.nomUser}} a bien été ajouté à l'équipe {{equipe.nomEquipe}}</a>
-        </div>
-    {% endif %}
+    <div class="pl-4 pt-2 ">
+        {% if succes is defined %}
+            <div class="alert alert-succes mb-3">
+                {{membre.nomUser}} a bien été ajouté à l'équipe {{equipe.nomEquipe}}</a>
+            </div>
+        {% endif %}
 
-    {{ form_errors(ajoutMembreForm) }}
+        {{ form_errors(ajoutMembreForm) }}
 
-    {{ form_start(ajoutMembreForm) }}
+        {{ form_start(ajoutMembreForm) }}
 
-        {{ form_row(ajoutMembreForm.nom, {
-            'label': "Nom du joueur : ",
-            'attr': {
-                'placeholder': 'Chocolat ...',
-            },
-            'label_attr': {
-                'class': 'm-2',
-            },
-        }) }}
-        {{ form_row(ajoutMembreForm.prenom, {
-            'label': "Prénom du joueur : ",
-            'attr': {
-                'placeholder': '14 ...',
-            },
-            'label_attr': {
-                'class': 'm-2',
-            },
-        }) }}
-        {{ form_row(ajoutMembreForm.email, {
-            'label': 'Adresse mail : ',
-            'label_attr': {
-                'class': 'm-2',
-            },
-            'attr': {
-                'placeholder': '...@gmail.com',
-            },
-        }) }}
-        <br/>
-        <button type="submit" class="btn btn-success mb-3">Ajouter</button>
+            {{ form_row(ajoutMembreForm.nom, {
+                'label': "Nom du joueur : ",
+                'attr': {
+                    'placeholder': 'Chocolat ...',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+            {{ form_row(ajoutMembreForm.prenom, {
+                'label': "Prénom du joueur : ",
+                'attr': {
+                    'placeholder': '14 ...',
+                },
+                'label_attr': {
+                    'class': 'm-2',
+                },
+            }) }}
+            {{ form_row(ajoutMembreForm.email, {
+                'label': 'Adresse mail : ',
+                'label_attr': {
+                    'class': 'm-2',
+                },
+                'attr': {
+                    'placeholder': '...@gmail.com',
+                },
+            }) }}
+            <br/>
+            <button type="submit" class="btn btn-success mb-3">Ajouter</button>
 
-    {{ form_end(ajoutMembreForm) }}
+        {{ form_end(ajoutMembreForm) }}
     </div>
+ </div>
 {% endblock %}

@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/equipes.css')}}">
+{% endblock %}
+
 {% block title %}Mes équipes{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
+<div class="container-fluid mes-equipes">
     <h1>Mes équipes</h1>
     
-    <div class="row">
+    <div class="pl-4 pt-2 row">
         {% for index, e in equipes %}
 
             {# index est la clé ou l'index de l'élément, item est la valeur #}

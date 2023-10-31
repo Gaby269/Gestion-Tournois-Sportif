@@ -1,62 +1,123 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/compte.css')}}">
+{% endblock %}
+
 {% block title %}Mon compte{% endblock %}
 
 {% block body %}
 
-<div class="container-fluid">
+<div class="container-fluid mon-compte">
     <h1>Mon compte</h1>
     
-    <div class="row">
+    <div class="pl-4 pt-2 row">
         <div class="card m-3" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><b>Information générales</b></h5>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item nom">
-                        <b>Nom : </b>{{app.user.nomUser}} 
-                        <form method="POST"> 
-                            <i class="material-icons modifier-nom">edit</i>
-                        </form>
+                        {% if nomVisible is defined  %}
+                            {{ form_start(formModification) }}
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        {{ form_row(formModification.nom_user, {'attr': {'class': 'form-control', 'style': 'margin-left:1.5rem'}}) }}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{ form_row(formModification.save, {'attr': {'class': 'btn', 'style': 'margin-top:2rem'}}) }}
+                                    </div>
+                                </div>      
+                            {{ form_end(formModification) }}                      
+                        {% else %}
+                            <div class="form-inline">
+                                <b>Nom : </b>{{app.user.nomUser}}
+                                <form method="POST" action="{{ path('modifier_ville') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-ville" style="margin-left:10px">edit</i></button>
+                                </form>
+                            </div>
+                        {% endif %}
                     </li>
                     <li class="list-group-item prenom">
-                        <b>Prénom : </b>{{app.user.prenomUser}}
-                        <form method="POST"> 
-                            <i class="material-icons modifier-prenom">edit</i>
-                        </form>
+                        {% if prenomVisible is defined  %}
+                            {{ form_start(formModification) }}
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        {{ form_row(formModification.prenom_user, {'attr': {'class': 'form-control', 'style': 'margin-left:1.5rem'}}) }}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{ form_row(formModification.save, {'attr': {'class': 'btn', 'style': 'margin-top:2rem'}}) }}
+                                    </div>
+                                </div>
+                            {{ form_end(formModification) }}                           
+                        {% else %}
+                            <div class="form-inline">
+                                <b>Prénom : </b>{{app.user.prenomUser}} 
+                                <form method="POST" action="{{ path('modifier_ville') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-ville" style="margin-left:10px">edit</i></button>
+                                </form>
+                            </div>
+                        {% endif %}
                     </li>
                     <li class="list-group-item ville">
-                        <b>Ville : </b>{{app.user.villeUser}} 
-                        <form method="POST">
-                            <i class="material-icons modifier-ville">edit</i>
-                        </form>
+                        {% if villeVisible is defined  %}
+                            {{ form_start(formModification) }}
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        {{ form_row(formModification.ville_user, {'attr': {'class': 'form-control', 'style': 'margin-left:1.5rem'}}) }}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{ form_row(formModification.save, {'attr': {'class': 'btn', 'style': 'margin-top:2rem'}}) }}
+                                    </div>
+                                </div>    
+                            {{ form_end(formModification) }}                        
+                        {% else %}
+                            <div class="form-inline">
+                                <b>Ville : </b>{{app.user.villeUser}} 
+                                <form method="POST" action="{{ path('modifier_ville') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-ville" style="margin-left:10px">edit</i></button>
+                                </form>
+                            </div>
+                        {% endif %}
                     </li>
                 </ul>
                 
             </div>
         </div>
 
-        <div class="card m-3" style="width: 18rem;">
+        <div class="card m-3" style="width: 20rem;">
             <div class="card-body">
                 <h5 class="card-title"><b>Information de connexion</b></h5>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item email">
-                        <b>Email : </b>{{app.user.email}} 
-                        <form method="POST">    
                         
-                            <i class="material-icons modifier-email">edit</i>
-
+                        {% if emailVisible is defined %}
                             {{ form_start(formModification) }}
-                                {{ form_row(formModification.nouveau_email) }} {# Champ de saisie "email" #}
-                                {{ form_row(formModification.save) }} {# Bouton de soumission #}
-                            {{ form_end(formModification) }}
-
-                        </form>
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        {{ form_row(formModification.email, {'attr': {'class': 'form-control', 'style': 'margin-left:1.5rem'}}) }}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{ form_row(formModification.save, {'attr': {'class': 'btn', 'style': 'margin-top:2rem'}}) }}
+                                    </div>
+                                </div>     
+                            {{ form_end(formModification) }}                        
+                        {% else %}
+                            <div class="form-inline">
+                                <b>Email : </b>{{app.user.email}}  
+                                <form method="POST" action="{{ path('modifier_email') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                    <button type="submit" class="bouton-modif" style="margin-top:10px;"><i class="material-icons modifier-email" style="margin-left:10px">edit</i></button>
+                                </form>
+                            </div>
+                        {% endif %}
                     </li>
                     <li class="list-group-item mdp">
-                        <b>Mot de passe : </b>°°°°°° 
-                        <form method="POST">
-                            <i class="material-icons modifier-mdp">edit</i>
-                        </form>
+                        <div class="form-inline">
+                            <b>Mot de passe : </b>°°°°°° 
+                            <form method="POST" action="{{ path('modifier_email') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-email" style="margin-left:10px">edit</i></button>
+                            </form>
+                        
+                        </div>
                     </li>
                 </ul>
             </div>

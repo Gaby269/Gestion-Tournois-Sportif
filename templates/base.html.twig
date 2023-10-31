@@ -3,18 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Accueil{% endblock %} - Gestion de tournois Symfony 6</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="icon" href="{{ asset('assets/images/logo_gts.jpg')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Feuille de styles -->
-		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
+		<!-- <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('assets/css/nav.css')}}">
+		<link rel="stylesheet" href="{{ asset('assets/css/footer.css')}}">
         {% block stylesheets %}
         {% endblock %}
 		<link rel="stylesheet" href="{{ asset('assets/css/styles.css')}}">
 
 		<!-- Script JS -->
-		<script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+		<script src="{{ asset('assets/js/bootstrap.min.js')}}" defer></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         {% block javascripts %}
         {% endblock %}
 		<script src="{{ asset('assets/js/script.js')}}" defer></script>

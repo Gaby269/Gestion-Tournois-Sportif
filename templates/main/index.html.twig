@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/accueil.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/accueil.css')}}">
 {% endblock %}
 
 {% block title %}Site{% endblock %}
@@ -22,30 +22,58 @@
     <div class="accueil">
     <p>Bonjour ! nous somme le  {{"now" | date('d/m/Y H:i', timezone="Europe/Paris")}}</p>
             
-        <div class="container-fluid">
+        <div class="container-fluid" styles="align-items:center;" >
             <div class="evenement">
                 <div class="img-coupe">
                     <img class="coupe" src="{{ asset('assets/images/word-cup-rugby.jpg')}}" alt="coupe-monde">
                 </div>
-                <h2 class="titre-evenement"><b>Coupe du monde de Rugby</b></h2>
+                <h2 class="titre-evenement text-center"><b>Coupe du monde de Rugby</b></h2>
                 
-                <p>La france organise la coupe du monde de rugby 2023, et pour la finale ce sera les AllBlacks contre l'afrique du sud !! Ne ratez pas ce grand évènement.</p>
+                <p class="text-center">Les grands gagnants de la coupe du monde sont ....</p>
                 
                 <div class="img-equipe">
-                    <img class="equipe" src="{{ asset('assets/images/allblack.png')}}" alt="allblacks">
-                    <b> VS </b>
                     <img class="equipe" src="{{ asset('assets/images/springbok.png')}}" alt="springbok">
                 </div>
             </div>
-            <div class="carousel">
-                <img src="{{ asset('assets/images/springbok.png')}}" class="d-block w-100" alt="Image 1">
-                <img src="{{ asset('assets/images/allblack.png')}}" class="d-block w-100" alt="Image 2">
-                <img src="{{ asset('assets/images/word-cup-rugby.jpg')}}" class="d-block w-100" alt="Image 3">
-
+            <div class="div-carrousel">
+                <div id="carousel-accueil" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('assets/images/allblack.png')}}" alt="Carrousel slide 1" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/springbok.png')}}" alt="Carrousel slide 2" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/logo_gts.jpg')}}" alt="Carrousel slide 3" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/basket.jpg')}}" alt="Carrousel slide 4" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/cdm-rugby.jpg')}}" alt="Carrousel slide 5" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/coureur.jpg')}}" alt="Carrousel slide 6" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/foot.jpg')}}" alt="Carrousel slide 7" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/tennis.jpg')}}" alt="Carrousel slide 8" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('assets/images/word-cup-rugby.jpg')}}" alt="Carrousel slide 9" class="d-block w-100">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 {% endblock %}
+
+
+
 
 
