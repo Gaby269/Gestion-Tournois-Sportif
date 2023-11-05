@@ -55,7 +55,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                         {% endif %}
-                        {% if app.user and app.user.getCapitaineEquipe() != null %} 
+                        {% if app.user and app.user.getCapitaineEquipe() != null %}
                             <li>
                                 <a class="dropdown-item" href="{{ path('inscription_tournois') }}">S'inscrire au tournoi</a>
                             </li>
@@ -63,7 +63,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                         {% endif %}
-                        {% if app.user and app.user.getCapitaineEquipe() != null %} 
+                        {% if app.user %} 
                             <li>
                                 <a class="dropdown-item" href="{{ path('mes_tournois') }}">Consulter les tournois</a>
                             </li>

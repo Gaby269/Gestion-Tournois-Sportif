@@ -31,8 +31,8 @@
                         {% else %}
                             <div class="form-inline">
                                 <b>Nom : </b>{{app.user.nomUser}}
-                                <form method="POST" action="{{ path('modifier_ville') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
-                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-ville" style="margin-left:10px">edit</i></button>
+                                <form method="POST" action="{{ path('modifier_nom') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-nom" style="margin-left:10px">edit</i></button>
                                 </form>
                             </div>
                         {% endif %}
@@ -52,8 +52,8 @@
                         {% else %}
                             <div class="form-inline">
                                 <b>Prénom : </b>{{app.user.prenomUser}} 
-                                <form method="POST" action="{{ path('modifier_ville') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
-                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-ville" style="margin-left:10px">edit</i></button>
+                                <form method="POST" action="{{ path('modifier_prenom') }}"> {# Assurez-vous d'utiliser le chemin de votre contrôleur Symfony pour gérer la modification #}
+                                    <button type="submit" class="bouton-modif" style="margin-top:10px"><i class="material-icons modifier-prenom" style="margin-left:10px">edit</i></button>
                                 </form>
                             </div>
                         {% endif %}

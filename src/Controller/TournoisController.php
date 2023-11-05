@@ -68,6 +68,7 @@ class TournoisController extends AbstractController
     }
 
 
+    // Tournois pour lesquel je suis gestionnaire
     #[Route('/tournois/mes_tournois', name: 'mes_tournois')]
     public function afficherTournois(EntityManagerInterface $entityManager): Response
     {
@@ -88,7 +89,7 @@ class TournoisController extends AbstractController
             ->setParameter('user', $userCourant);
 
             $tournois=$query->getResult();
-            dump($tournois);
+            // TODO si je suis pas gestionnaire afficher les tournois auxquels je suis inscrit(e)
             
             return $this->render('tournois/mes_tournois.html.twig', [
                 'tournois' => $tournois
