@@ -117,7 +117,7 @@ class TournoisController extends AbstractController
             ->setParameter('sport', $userCourant->getSportsUser()); // Remplacez "getSport" par la méthode appropriée pour obtenir le sport de l'utilisateur
 
             $tournois = $query->getResult();
-            dump($tournois);
+            //dump($tournois);
 
             // Verification du formulaire
             if (isset($_POST['inscription_button'])) {
@@ -125,14 +125,13 @@ class TournoisController extends AbstractController
                 $tournoiId = $request->request->get('tournoi_id');
                     
                 /** @var Tournois $tournoi */
-                $tournois = $entityManager->find(Tournois::class, $tournoiId);                
-                dump($tournois);
+                $tournoi = $entityManager->find(Tournois::class, $tournoiId);                
+                dump($tournoi);
 
                 return $this->redirectToRoute('liste_tournois', [
-                    'inscritTournoi' => $tournois
+                    'inscritTournoi' => $tournoi
                 ]);
 
-                
             };
             
             return $this->render('tournois/liste_tournois.html.twig', [

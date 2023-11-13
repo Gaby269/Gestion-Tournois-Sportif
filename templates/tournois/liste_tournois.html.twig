@@ -8,6 +8,9 @@
 
     <div class="row">
         {% for index, t in tournois %}
+            {% if inscritTournoi is defined %}
+            {% dump(inscritTournoi) %}
+            {% endif %}
             {# index est la clé ou l'index de l'élément, item est la valeur #}
             <div class="card m-3" style="width: 18rem;">
                 <div class="card-body">
@@ -31,10 +34,12 @@
                             </ul>
                         </li>
                         {% if t.listeEquipes %}
+                            {% dump(t.listeEquipes) %}
                             <li class="list-group-item liste-equipe">
                                 <b>Liste des équipes : </b>
                                 <ul class="list-group list-group-flush equipe-list">
                                     {% for index, e in t.listeEquipes %}
+                                        {% dump(e) %}
                                         <li class="list-group-item equipe">{{e.nomEquipe}}</li>
                                     {% endfor %}
                                 </ul>
@@ -53,13 +58,13 @@
                         
                     </ul>
                     <br/>
-                    {% if inscritTournoi is defined and inscritTournoi != t %}
+                    {% if inscritTournoi is defined and inscritTournoi == t %}
+                        <div class="deja-inscrit color-green m-2" style="border: 2px solid darkgreen; padding: 5px;"> Déjà inscrit ! </div>
+                    {% else %}
                         <form method="POST">
                             <input type="hidden" name="tournoi_id" value="{{ t.id }}">
                             <button type="submit" class="inscription-tournois btn btn-success mb-2 ">S'inscrire</button>
                         </form>
-                    {% else %}
-                        <div class="deja-inscrit color-green m-2" style="border: 2px solid darkgreen; padding: 5px;"> Déjà inscrit ! </div>
                     {% endif %}
                 </div>
             </div>
