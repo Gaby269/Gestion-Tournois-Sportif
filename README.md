@@ -1,3 +1,3 @@
 # Gestion-Tournois-Sportif
 
-L'idée de ce projet est de refaire le projet de L2 qui été de créé un site pour gérer des tournois sportifs. Ainsi, au lieu de le faire en PHP, HTML et CSS et JS on utilisera cette fois ci le framework Symfony pour le réaliser.
+Ce projet vise à revisiter un projet réalisé en L2 qui impliquait la création d'un site destiné à la gestion de tournois sportifs. Au lieu d'utiliser les langages traditionnels tels que PHP, HTML, CSS, et JS, nous opterons cette fois-ci pour le framework Symfony afin de le concrétiser.
